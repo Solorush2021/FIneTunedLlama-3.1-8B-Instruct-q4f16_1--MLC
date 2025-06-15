@@ -4,7 +4,7 @@
 **Unleashing Kid-Friendly AI in Your Browser, Accelerated by WebGPU!**
 
 ## ✨ Experience the Future of Kid-Safe AI - Live Demo! ✨
-## [🚀 Try FineTunnedLLama8b q4 Now!](https://chat.webllm.ai/#/) 🚀
+## [🚀 Try FineTunnedLLama8b model directly in your browser no installation needed Now!](https://chat.webllm.ai/#/) 🚀
 
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](#[link to your build status])
 [![License](https://img.shields.io/badge/License-MIT-blue)](#[link to your license])
