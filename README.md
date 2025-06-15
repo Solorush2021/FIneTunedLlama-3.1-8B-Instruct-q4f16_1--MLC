@@ -1,6 +1,6 @@
 
 
-# FineTunnedLLama8b q4
+# FineTunnedLLama8b q4 (700 Mb)
 **Unleashing Kid-Friendly AI in Your Browser, Accelerated by WebGPU!**
 
 ## ✨ Experience the Future of Kid-Safe AI - Live Demo! ✨
