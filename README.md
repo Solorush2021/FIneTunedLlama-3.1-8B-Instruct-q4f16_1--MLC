@@ -1,481 +1,424 @@
+I understand. I have already provided the full README content in a single markdown block in my previous response. You can copy and paste that entire block into a file named README.md in your project's root directory.
+
+Here is the complete content again, ready to be copied into your README.md file:
+
 <div align="center" id="top">
 
-# WebLLM
-[![NPM Package](https://img.shields.io/badge/NPM_Package-Published-cc3534)](https://www.npmjs.com/package/@mlc-ai/web-llm)
-[!["WebLLM Chat Deployed"](https://img.shields.io/badge/WebLLM_Chat-Deployed-%2332a852)](https://chat.webllm.ai/)
-[![Join Discord](https://img.shields.io/badge/Join-Discord-7289DA?logo=discord&logoColor=white)](https://discord.gg/9Xpy2HGBuD)
-[![Related Repository: WebLLM Chat](https://img.shields.io/badge/Related_Repo-WebLLM_Chat-fafbfc?logo=github)](https://github.com/mlc-ai/web-llm-chat/)
-[![Related Repository: MLC LLM](https://img.shields.io/badge/Related_Repo-MLC_LLM-fafbfc?logo=github)](https://github.com/mlc-ai/mlc-llm/)
+# Your Project Name
+**Bringing Fun and Engaging Language Models to Kids' Devices**
 
-**High-Performance In-Browser LLM Inference Engine.**
+[![Your Badge 1](https://img.shields.io/badge/Your%20Badge%201-Value-blue)](#[link to your badge 1])
+[![Your Badge 2](https://img.shields.io/badge/Your%20Badge%202-Value-green)](#[link to your badge 2])
+[![Your Badge 3](https://img.shields.io/badge/Your%20Badge%203-Value-purple?logo=discord&logoColor=white)](#[link to your badge 3])
+[![Your Badge 4](https://img.shields.io/badge/Your%20Badge%204-Value-gray)](#[link to your badge 4])
 
 
-[Documentation](https://webllm.mlc.ai/docs/) | [Blogpost](https://blog.mlc.ai/2024/06/13/webllm-a-high-performance-in-browser-llm-inference-engine) | [Paper](https://arxiv.org/abs/2412.15803) | [Examples](examples)
+[Documentation](#[link to your documentation]) | [Blogpost](#[link to your blogpost]) | [Paper](#[link to your paper]) | [Examples](examples)
 
 </div>
 
-## Overview
-WebLLM is a high-performance in-browser LLM inference engine that brings language model inference directly onto web browsers with hardware acceleration.
-Everything runs inside the browser with no server support and is accelerated with WebGPU.
+## ✨ Overview
 
-WebLLM is **fully compatible with [OpenAI API](https://platform.openai.com/docs/api-reference/chat).**
-That is, you can use the same OpenAI API on **any open source models** locally, with functionalities
-including streaming, JSON-mode, function-calling (WIP), etc.
+Welcome to Your Project Name! We are dedicated to making advanced language models accessible and fun for young users by bringing high-performance, in-browser LLM inference directly to their devices.
 
-We can bring a lot of fun opportunities to build AI assistants for everyone and enable privacy while enjoying GPU acceleration.
+Our core focus is the implementation of a **specially fine-tuned LLaMA model optimized for kid-friendly language and content**. This allows for engaging, age-appropriate, and interactive AI experiences that run entirely within the web browser, accelerated by WebGPU, and without the need for external servers.
 
-You can use WebLLM as a base [npm package](https://www.npmjs.com/package/@mlc-ai/web-llm) and build your own web application on top of it by following the examples below. This project is a companion project of [MLC LLM](https://github.com/mlc-ai/mlc-llm), which enables universal deployment of LLM across hardware environments.
+This approach ensures privacy and enables offline functionality, opening up exciting possibilities for educational tools, interactive stories, and creative applications for children. Use Your Project Name as a base for your own web applications that leverage this on-device AI capability.
+
+<br>
 
 <div align="center">
-
-**[Check out WebLLM Chat to try it out!](https://chat.webllm.ai/)**
-
+<img src="[path/to/a/fun/kid-friendly/project/image.png]" alt="Kid-Friendly Project Illustration" width="600"/>
+<br>
+<em>An illustration showing Your Project Name providing engaging AI interactions for kids.</em>
 </div>
 
-## Key Features
-- **In-Browser Inference**: WebLLM is a high-performance, in-browser language model inference engine that leverages WebGPU for hardware acceleration, enabling powerful LLM operations directly within web browsers without server-side processing.
+<br>
 
-- [**Full OpenAI API Compatibility**](#full-openai-compatibility): Seamlessly integrate your app with WebLLM using OpenAI API with functionalities such as streaming, JSON-mode, logit-level control, seeding, and more.
+## 🚀 Getting Started
 
-- **Structured JSON Generation**: WebLLM supports state-of-the-art JSON mode structured generation, implemented in the WebAssembly portion of the model library for optimal performance. Check [WebLLM JSON Playground](https://huggingface.co/spaces/mlc-ai/WebLLM-JSON-Playground) on HuggingFace to try generating JSON output with custom JSON schema.
-
-- [**Extensive Model Support**](#built-in-models): WebLLM natively supports a range of models including Llama 3, Phi 3, Gemma, Mistral, Qwen(通义千问), and many others, making it versatile for various AI tasks. For the complete supported model list, check [MLC Models](https://mlc.ai/models).
-
-- [**Custom Model Integration**](#custom-models): Easily integrate and deploy custom models in MLC format, allowing you to adapt WebLLM to specific needs and scenarios, enhancing flexibility in model deployment.
-
-- **Plug-and-Play Integration**: Easily integrate WebLLM into your projects using package managers like NPM and Yarn, or directly via CDN, complete with comprehensive [examples](./examples/) and a modular design for connecting with UI components.
-
-- **Streaming & Real-Time Interactions**: Supports streaming chat completions, allowing real-time output generation which enhances interactive applications like chatbots and virtual assistants.
-
-- **Web Worker & Service Worker Support**: Optimize UI performance and manage the lifecycle of models efficiently by offloading computations to separate worker threads or service workers.
-
-- **Chrome Extension Support**: Extend the functionality of web browsers through custom Chrome extensions using WebLLM, with examples available for building both basic and advanced extensions.
-
-## Built-in Models
-
-Check the complete list of available models on [MLC Models](https://mlc.ai/models). WebLLM supports a subset of these available models and the list can be accessed at [`prebuiltAppConfig.model_list`](https://github.com/mlc-ai/web-llm/blob/main/src/config.ts#L293).
-
-Here are the primary families of models currently supported:
-
-- **Llama**: Llama 3, Llama 2, Hermes-2-Pro-Llama-3
-- **Phi**: Phi 3, Phi 2, Phi 1.5
-- **Gemma**: Gemma-2B
-- **Mistral**: Mistral-7B-v0.3, Hermes-2-Pro-Mistral-7B, NeuralHermes-2.5-Mistral-7B, OpenHermes-2.5-Mistral-7B
-- **Qwen (通义千问)**: Qwen2 0.5B, 1.5B, 7B
-
-If you need more models, [request a new model via opening an issue](https://github.com/mlc-ai/web-llm/issues/new/choose) or check [Custom Models](#custom-models) for how to compile and use your own models with WebLLM.
-
-## Jumpstart with Examples
-
-Learn how to use WebLLM to integrate large language models into your application and generate chat completions through this simple Chatbot example: 
-
-[![Example Chatbot on JSFiddle](https://img.shields.io/badge/Example-JSFiddle-blue?logo=jsfiddle&logoColor=white)](https://jsfiddle.net/neetnestor/4nmgvsa2/)
-[![Example Chatbot on Codepen](https://img.shields.io/badge/Example-Codepen-gainsboro?logo=codepen)](https://codepen.io/neetnestor/pen/vYwgZaG)
-
-For an advanced example of a larger, more complicated project, check [WebLLM Chat](https://github.com/mlc-ai/web-llm-chat/blob/main/app/client/webllm.ts).
-
-More examples for different use cases are available in the [examples](./examples/) folder.
-
-## Get Started
-
-WebLLM offers a minimalist and modular interface to access the chatbot in the browser.
-The package is designed in a modular way to hook to any of the UI components.
+Jumpstart your development with Your Project Name! Here's how to integrate our engine, powered by the fine-tuned LLaMA model for kids:
 
 ### Installation
 
-#### Package Manager
+Install the package using your preferred package manager:
 
 ```sh
 # npm
-npm install @mlc-ai/web-llm
+npm install @your-scope/your-package-name
 # yarn
-yarn add @mlc-ai/web-llm
+yarn add @your-scope/your-package-name
 # or pnpm
-pnpm install @mlc-ai/web-llm
-```
+pnpm install @your-scope/your-package-name
 
-Then import the module in your code.
 
-```typescript
+Import the necessary modules:
+
 // Import everything
-import * as webllm from "@mlc-ai/web-llm";
+import * as yourProject from "@your-scope/your-package-name";
 // Or only import what you need
-import { CreateMLCEngine } from "@mlc-ai/web-llm";
-```
+import { CreateYourEngine } from "@your-scope/your-package-name";
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
 
-#### CDN Delivery
+For a quick start via CDN:
 
-Thanks to [jsdelivr.com](https://www.jsdelivr.com/package/npm/@mlc-ai/web-llm), WebLLM can be imported directly through URL and work out-of-the-box on cloud development platforms like [jsfiddle.net](https://jsfiddle.net/), [Codepen.io](https://codepen.io/), and [Scribbler](https://scribbler.live):
+import * as yourProject from "https://esm.run/@your-scope/your-package-name";
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
 
-```javascript
-import * as webllm from "https://esm.run/@mlc-ai/web-llm";
-```
-It can also be dynamically imported as:
-```javascript
-const webllm = await import ("https://esm.run/@mlc-ai/web-llm");
-```
+Dynamically import:
 
-### Create MLCEngine
+const yourProject = await import ("https://esm.run/@your-scope/your-package-name");
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
+Create Your Engine
 
-Most operations in WebLLM are invoked through the `MLCEngine` interface. You can create an `MLCEngine` instance and loading the model by calling the `CreateMLCEngine()` factory function.
+Initialize the engine with the kid-friendly LLaMA model:
 
-(Note that loading models requires downloading and it can take a significant amount of time for the very first run without caching previously. You should properly handle this asynchronous call.)
+import { CreateYourEngine } from "@your-scope/your-package-name";
 
-```typescript
-import { CreateMLCEngine } from "@mlc-ai/web-llm";
-
-// Callback function to update model loading progress
+// Optional callback for tracking loading progress
 const initProgressCallback = (initProgress) => {
-  console.log(initProgress);
+  console.log("Loading progress:", initProgress);
 }
-const selectedModel = "Llama-3.1-8B-Instruct-q4f32_1-MLC";
 
-const engine = await CreateMLCEngine(
+// Specify our fine-tuned kid's language model
+const selectedModel = "KidFriendly-LLaMA-7B-Instruct-q4f16_1-YOURPROJECT"; // Use your own model identifier
+
+const engine = await CreateYourEngine(
   selectedModel,
-  { initProgressCallback: initProgressCallback }, // engineConfig
+  { initProgressCallback: initProgressCallback }, // Engine configuration options
 );
-```
 
-Under the hood, this factory function does the following steps for first creating an engine instance (synchronous) and then loading the model (asynchronous). You can also do them separately in your application.
+console.log("Your Project Name engine initialized successfully!");
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
 
-```typescript
-import { MLCEngine } from "@mlc-ai/web-llm";
+You can also create and load the engine separately:
 
-// This is a synchronous call that returns immediately
-const engine = new MLCEngine({
+import { YourEngineClass } from "@your-scope/your-package-name"; // Use your actual class name
+
+// Synchronous call
+const engine = new YourEngineClass({
   initProgressCallback: initProgressCallback
 });
 
-// This is an asynchronous call and can take a long time to finish
+// Asynchronous call to load the model
 await engine.reload(selectedModel);
-```
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+Chat Completion
 
-### Chat Completion
-After successfully initializing the engine, you can now invoke chat completions using OpenAI style chat APIs through the `engine.chat.completions` interface. For the full list of parameters and their descriptions, check [section below](#full-openai-compatibility) and [OpenAI API reference](https://platform.openai.com/docs/api-reference/chat/create).
+Engage the fine-tuned model to generate responses:
 
-(Note: The `model` parameter is not supported and will be ignored here. Instead, call `CreateMLCEngine(model)` or `engine.reload(model)` instead as shown in the [Create MLCEngine](#create-mlcengine) above.)
-
-
-```typescript
 const messages = [
-  { role: "system", content: "You are a helpful AI assistant." },
-  { role: "user", content: "Hello!" },
+  { role: "system", content: "You are a friendly and imaginative AI for kids." },
+  { role: "user", content: "Can you tell me a silly story about a talking cat?" },
 ]
 
 const reply = await engine.chat.completions.create({
   messages,
+  // Add any other parameters like temperature, max_tokens, etc.
 });
-console.log(reply.choices[0].message);
-console.log(reply.usage);
-```
+console.log("AI Response:", reply.choices[0].message.content);
+console.log("Usage Info:", reply.usage); // If your engine provides usage info
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+Streaming Responses
 
-### Streaming
+For interactive applications like chatbots for kids, streaming is essential:
 
-WebLLM also supports streaming chat completion generating. To use it, simply pass `stream: true` to the `engine.chat.completions.create` call.
-
-```typescript
 const messages = [
-  { role: "system", content: "You are a helpful AI assistant." },
-  { role: "user", content: "Hello!" },
+  { role: "system", content: "You are a friendly and helpful AI assistant for kids." },
+  { role: "user", content: "What sounds does a cow make?" },
 ]
 
 // Chunks is an AsyncGenerator object
 const chunks = await engine.chat.completions.create({
   messages,
-  temperature: 1,
+  temperature: 1, // Example parameter
   stream: true, // <-- Enable streaming
-  stream_options: { include_usage: true },
+  stream_options: { include_usage: true }, // If your engine supports this
 });
 
 let reply = "";
 for await (const chunk of chunks) {
-  reply += chunk.choices[0]?.delta.content || "";
-  console.log(reply);
+  const content = chunk.choices[0]?.delta?.content || "";
+  reply += content;
+  console.log("Streaming update:", content); // Update your UI with this chunk
   if (chunk.usage) {
-    console.log(chunk.usage); // only last chunk has usage
+    console.log("Usage Info (End of Stream):", chunk.usage); // usage typically in the last chunk
   }
 }
 
-const fullReply = await engine.getMessage();
-console.log(fullReply);
-```
+const fullReply = await engine.getMessage(); // If your engine has a method to get the full message
+console.log("Full Response:", fullReply);
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+Advanced Usage
 
-## Advanced Usage
+Explore more advanced features and configurations:
 
-### Using Workers
+Using Workers
 
-You can put the heavy computation in a worker script to optimize your application performance. To do so, you need to:
+Offload computation to improve UI responsiveness:
 
-1. Create a handler in the worker thread that communicates with the frontend while handling the requests.
-2. Create a Worker Engine in your main application, which under the hood sends messages to the handler in the worker thread.
-
-For detailed implementations of different kinds of Workers, check the following sections.
-
-#### Dedicated Web Worker
-
-WebLLM comes with API support for WebWorker so you can hook
-the generation process into a separate worker thread so that
-the computing in the worker thread won't disrupt the UI.
-
-We create a handler in the worker thread that communicates with the frontend while handling the requests.
-
-```typescript
+Dedicated Web Worker
 // worker.ts
-import { WebWorkerMLCEngineHandler } from "@mlc-ai/web-llm";
+import { YourWorkerEngineHandler } from "@your-scope/your-package-name"; // Use your actual handler name
 
-// A handler that resides in the worker thread
-const handler = new WebWorkerMLCEngineHandler();
+// Handler in the worker thread
+const handler = new YourWorkerEngineHandler();
 self.onmessage = (msg: MessageEvent) => {
   handler.onmessage(msg);
 };
-```
-
-In the main logic, we create a `WebWorkerMLCEngine` that
-implements the same `MLCEngineInterface`. The rest of the logic remains the same.
-
-```typescript
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
 // main.ts
-import { CreateWebWorkerMLCEngine } from "@mlc-ai/web-llm";
+import { CreateYourWorkerEngine } from "@your-scope/your-package-name"; // Use your actual factory function name
 
 async function main() {
-  // Use a WebWorkerMLCEngine instead of MLCEngine here
-  const engine = await CreateWebWorkerMLCEngine(
+  // Use a Worker Engine instead of the main engine directly
+  const engine = await CreateYourWorkerEngine(
     new Worker(
-      new URL("./worker.ts", import.meta.url), 
+      new URL("./worker.ts", import.meta.url),
       {
         type: "module",
       }
     ),
-    selectedModel,
+    selectedModel, // Your kid-friendly model identifier
     { initProgressCallback }, // engineConfig
   );
 
-  // everything else remains the same
+  // Use the engine for chat completion just like before
+  // ...
 }
-```
+main(); // Call your main function
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+Use Service Worker
 
-### Use Service Worker
+Maintain model state across page visits and enable offline experiences:
 
-WebLLM comes with API support for ServiceWorker so you can hook the generation process
-into a service worker to avoid reloading the model in every page visit and optimize
-your application's offline experience.
-
-(Note, Service Worker's life cycle is managed by the browser and can be killed any time without notifying the webapp. `ServiceWorkerMLCEngine` will try to keep the service worker thread alive by periodically sending heartbeat events, but your application should also include proper error handling. Check `keepAliveMs` and `missedHeatbeat` in [`ServiceWorkerMLCEngine`](https://github.com/mlc-ai/web-llm/blob/main/src/service_worker.ts#L234) for more details.)
-
-We create a handler in the worker thread that communicates with the frontend while handling the requests.
-
-
-```typescript
 // sw.ts
-import { ServiceWorkerMLCEngineHandler } from "@mlc-ai/web-llm";
+import { YourServiceWorkerEngineHandler } from "@your-scope/your-package-name"; // Use your actual handler name
 
-let handler: ServiceWorkerMLCEngineHandler;
+let handler: YourServiceWorkerEngineHandler;
 
 self.addEventListener("activate", function (event) {
-  handler = new ServiceWorkerMLCEngineHandler();
-  console.log("Service Worker is ready");
+  handler = new YourServiceWorkerEngineHandler();
+  console.log("Your Service Worker is ready");
 });
-```
-
-Then in the main logic, we register the service worker and create the engine using
-`CreateServiceWorkerMLCEngine` function. The rest of the logic remains the same.
-
-```typescript
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
 // main.ts
-import { MLCEngineInterface, CreateServiceWorkerMLCEngine } from "@mlc-ai/web-llm";
+import { YourEngineInterface, CreateYourServiceWorkerEngine } from "@your-scope/your-package-name"; // Use your actual interface and factory function names
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register(
     new URL("sw.ts", import.meta.url),  // worker script
     { type: "module" },
-  );
+  ).then(registration => {
+    console.log('Service Worker registration successful with scope: ', registration.scope);
+  }, error => {
+    console.log('Service Worker registration failed: ', error);
+  });
 }
 
-const engine: MLCEngineInterface =
-  await CreateServiceWorkerMLCEngine(
-    selectedModel,
+const engine: YourEngineInterface =
+  await CreateYourServiceWorkerEngine(
+    selectedModel, // Your kid-friendly model identifier
     { initProgressCallback }, // engineConfig
   );
-```
 
-You can find a complete example on how to run WebLLM in service worker in [examples/service-worker](examples/service-worker/).
+// Use the engine for chat completion just like before
+// ...
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+[Other Advanced Features]
 
-### Chrome Extension
-You can also find examples of building Chrome extension with WebLLM in [examples/chrome-extension](examples/chrome-extension/) and [examples/chrome-extension-webgpu-service-worker](examples/chrome-extension-webgpu-service-worker/). The latter one leverages service worker, so the extension is persistent in the background. Additionally, you can explore another full project of a Chrome extension, WebLLM Assistant, which leverages WebLLM [here](https://github.com/mlc-ai/web-llm-assistant).
+[Add sections for any other advanced features your project supports, adapting the content from the original README as needed, but focusing on your project's specifics and language.]
 
-## Full OpenAI Compatibility
-WebLLM is designed to be fully compatible with [OpenAI API](https://platform.openai.com/docs/api-reference/chat). Thus, besides building a simple chatbot, you can also have the following functionalities with WebLLM:
+Full OpenAI Compatibility
 
-- [streaming](examples/streaming): return output as chunks in real-time in the form of an AsyncGenerator
-- [json-mode](examples/json-mode): efficiently ensure output is in JSON format, see [OpenAI Reference](https://platform.openai.com/docs/guides/text-generation/chat-completions-api) for more.
-- [seed-to-reproduce](examples/seed-to-reproduce): use seeding to ensure a reproducible output with fields `seed`.
-- [function-calling](examples/function-calling) (WIP): function calling with fields `tools` and `tool_choice` (with preliminary support); or manual function calling without `tools` or `tool_choice` (keeps the most flexibility).
+Your Project Name is designed to offer compatibility with the OpenAI Chat API, allowing you to use familiar methods for text generation. Supported functionalities include:
 
-## Custom Models
+Streaming responses
 
-WebLLM works as a companion project of [MLC LLM](https://github.com/mlc-ai/mlc-llm) and it supports custom models in MLC format. 
-It reuses the model artifact and builds the flow of MLC LLM. To compile and use your own models with WebLLM, please check out
-[MLC LLM document](https://llm.mlc.ai/docs/deploy/webllm.html)
-on how to compile and deploy new model weights and libraries to WebLLM. 
+JSON-mode output
 
-Here, we go over the high-level idea. There are two elements of the WebLLM package that enable new models and weight variants.
+[List any other supported features like seeding, function-calling (if applicable)]
 
-- `model`: Contains a URL to model artifacts, such as weights and meta-data.
-- `model_lib`: A URL to the web assembly library (i.e. wasm file) that contains the executables to accelerate the model computations.
+Custom Models
 
-Both are customizable in the WebLLM.
+While Your Project Name comes with a pre-tuned kid-friendly LLaMA model, it also supports integrating custom models. You can compile and use your own model weights and libraries. Refer to our [documentation](#[link to your custom model docs]) for detailed instructions.
 
-```typescript
-import { CreateMLCEngine } from "@mlc-ai/web-llm";
+The core idea involves defining the location of your model artifacts (model) and the WebAssembly library (model_lib):
 
-async main() {
+import { CreateYourEngine } from "@your-scope/your-package-name";
+
+async function loadCustomModel() { // Changed function name to be distinct
   const appConfig = {
     "model_list": [
       {
-        "model": "/url/to/my/llama",
-        "model_id": "MyLlama-3b-v1-q4f32_0",
-        "model_lib": "/url/to/myllama3b.wasm",
+        "model": "/url/to/my/custom-kid-model",
+        "model_id": "MyCustomKidModel-v1-q4f32_0", // Use your own identifier
+        "model_lib": "/url/to/mycustomkidmodel.wasm", // Path to your compiled wasm
       }
     ],
   };
-  // override default
+  // Example chat option override
   const chatOpts = {
     "repetition_penalty": 1.01
   };
 
-  // load a prebuilt model
-  // with a chat option override and app config
-  // under the hood, it will load the model from myLlamaUrl
-  // and cache it in the browser cache
-  // The chat will also load the model library from "/url/to/myllama3b.wasm",
-  // assuming that it is compatible to the model in myLlamaUrl.
-  const engine = await CreateMLCEngine(
-    "MyLlama-3b-v1-q4f32_0",
-    { appConfig }, // engineConfig
-    chatOpts,
+  // Load your custom model using the specified configuration
+  const engine = await CreateYourEngine(
+    "MyCustomKidModel-v1-q4f32_0", // Reference the model_id from appConfig
+    { appConfig }, // Pass the custom appConfig
+    chatOpts, // Optional chat options
   );
+
+  console.log("Custom model loaded.");
 }
-```
+loadCustomModel(); // Call the function
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+TypeScript
+IGNORE_WHEN_COPYING_END
+Building From Source
 
-In many cases, we only want to supply the model weight variant, but
-not necessarily a new model (e.g. `NeuralHermes-Mistral` can reuse `Mistral`'s
-model library). For examples of how a model library can be shared by different model variants,
-see `webllm.prebuiltAppConfig`.
+If you want to build Your Project Name from the source code:
 
-## Build WebLLM Package From Source
+# Clone the repository
+git clone [your-repo-url]
+cd [your-repo-directory]
 
-NOTE: you don't need to build from source unless you would like to modify the WebLLM package.
-To use the npm, simply follow [Get Started](#get-started) or any of the [examples](examples) instead.
-
-To build from source, simply run:
-
-```bash
+# Install dependencies
 npm install
+
+# Build the project
 npm run build
-```
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Bash
+IGNORE_WHEN_COPYING_END
 
-Then, to test the effects of your code change in an example, inside `examples/get-started/package.json`, change from `"@mlc-ai/web-llm": "^0.2.79"` to `"@mlc-ai/web-llm": ../..`.
+For testing local changes in examples:
 
-Then run:
-
-```bash
-cd examples/get-started
+cd examples/get-started # Or navigate to your example directory
+# In examples/get-started/package.json, change "@your-scope/your-package-name": "^x.y.z" to "@your-scope/your-package-name": "../.."
 npm install
 npm start
-```
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Bash
+IGNORE_WHEN_COPYING_END
 
-Note that sometimes you would need to switch between `file:../..` and `../..` to trigger npm to recognize new changes. In the worst case, you can run:
+Sometimes you might need to clean the cache for changes to be recognized:
 
-```bash
 cd examples/get-started
 rm -rf node_modules dist package-lock.json .parcel-cache
 npm install
 npm start
-```
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Bash
+IGNORE_WHEN_COPYING_END
+Building Core Runtime from Source (If Applicable)
 
-### In case you need to build TVMjs from source
+[Include this section ONLY if your project builds its own core runtime from source, similar to TVMjs for WebLLM. Adapt the instructions to your specific dependencies and build process. Replace MLC-specific details.]
 
-WebLLM's runtime largely depends on TVMjs: https://github.com/apache/tvm/tree/main/web
+If your project depends on a custom build of an underlying runtime:
 
-While it is also available as an npm package: https://www.npmjs.com/package/@mlc-ai/web-runtime, you can build it from source if needed by following the steps below.
+Install [dependency 1, e.g., Emscripten]. [Link to installation instructions]. Ensure [required tools, e.g., emcc] are in your PATH.
 
-1. Install [emscripten](https://emscripten.org). It is an LLVM-based compiler that compiles C/C++ source code to WebAssembly.
-    - Follow the [installation instruction](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended) to install the latest emsdk.
-    - Source `emsdk_env.sh` by `source path/to/emsdk_env.sh`, so that `emcc` is reachable from PATH and the command `emcc` works.
+[Instructions for setting up runtime source, e.g., cloning a specific repo and branch/commit].
 
-    We can verify the successful installation by trying out `emcc` terminal.
+[Instructions for configuring your project's package.json to use the local runtime build].
 
-    Note: We recently found that using the latest `emcc` version may run into issues during runtime. Use `./emsdk install 3.1.56` instead of `./emsdk install latest` for now as a workaround. The error may look like
-    ```
-    Init error, LinkError: WebAssembly.instantiate(): Import #6 module="wasi_snapshot_preview1"
-    function="proc_exit": function import requires a callable
-    ```
+[Instructions for building the runtime dependency].
 
-2. In `./package.json`, change from `"@mlc-ai/web-runtime": "0.18.0-dev2",` to `"@mlc-ai/web-runtime": "file:./tvm_home/web",`.
+[Any other necessary setup steps].
 
-3. Setup necessary environment
+Links
 
-   Prepare all the necessary dependencies for web build:
+Live Demo: [Link to your live demo URL]
 
-   ```shell
-   ./scripts/prep_deps.sh
-   ```
+[Link to your project's main repository]
 
-   In this step, if `$TVM_SOURCE_DIR` is not defined in the environment, we will execute the following line to build `tvmjs` dependency:
-   ```shell
-   git clone https://github.com/mlc-ai/relax 3rdparty/tvm-unity --recursive
-   ```
+[Link to your related projects, e.g., native runtime or diffusion models, if applicable]
 
-   This clones the current HEAD of `mlc-ai/relax`. However, it may not always be the correct branch or commit to clone. To build a specific npm version from source, refer to the version bump PR, which states which branch (i.e. `mlc-ai/relax` or `apache/tvm`) and which commit the current WebLLM version depends on. For instance, version 0.2.52, according to its version bump PR https://github.com/mlc-ai/web-llm/pull/521, is built by checking out the following commit https://github.com/apache/tvm/commit/e6476847753c80e054719ac47bc2091c888418b6 in `apache/tvm`, rather than the HEAD of `mlc-ai/relax`.
+🙏 Acknowledgement
 
-   Besides, `--recursive` is necessary and important. Otherwise, you may encounter errors like `fatal error: 'dlpack/dlpack.h' file not found`.
+[Acknowledge the open-source communities and projects that your work builds upon. Use a tone that is appreciative and accurately reflects your relationship to these projects. You can adapt the structure of the original acknowledgement.]
 
-4. Build WebLLM Package
+This project is made possible thanks to the efforts of the open-source community. We specifically acknowledge the foundations provided by [mention relevant communities like Apache TVM, Hugging Face, WebGPU, etc.] and the availability of open models like LLaMA.
 
-   ```shell
-   npm run build
-   ```
+Contributors
 
-5. Validate some of the sub-packages
+[Link to your contributors graph or list contributors]
 
-   You can then go to the subfolders in [examples](examples) to validate some of the sub-packages.
-   We use Parcelv2 for bundling. Although Parcel is not very good at tracking parent directory
-   changes sometimes. When you make a change in the WebLLM package, try to edit the `package.json`
-   of the subfolder and save it, which will trigger Parcel to rebuild.
-
-## Links
-
-- [Demo App: WebLLM Chat](https://chat.webllm.ai/)
-- If you want to run LLM on native runtime, check out [MLC-LLM](https://github.com/mlc-ai/mlc-llm)
-- You might also be interested in [Web Stable Diffusion](https://github.com/mlc-ai/web-stable-diffusion/).
-
-## Acknowledgement
-
-This project is initiated by members from CMU Catalyst, UW SAMPL, SJTU, OctoML, and the MLC community. We would love to continue developing and supporting the open-source ML community.
-
-This project is only possible thanks to the shoulders open-source ecosystems that we stand on. We want to thank the Apache TVM community and developers of the TVM Unity effort. The open-source ML community members made these models publicly available. PyTorch and Hugging Face communities make these models accessible. We would like to thank the teams behind Vicuna, SentencePiece, LLaMA, and Alpaca. We also would like to thank the WebAssembly, Emscripten, and WebGPU communities. Finally, thanks to Dawn and WebGPU developers.
-
-## Citation
-If you find this project to be useful, please cite:
-
-```
-@misc{ruan2024webllmhighperformanceinbrowserllm,
-      title={WebLLM: A High-Performance In-Browser LLM Inference Engine}, 
-      author={Charlie F. Ruan and Yucheng Qin and Xun Zhou and Ruihang Lai and Hongyi Jin and Yixin Dong and Bohan Hou and Meng-Shiun Yu and Yiyan Zhai and Sudeep Agarwal and Hangrui Cao and Siyuan Feng and Tianqi Chen},
-      year={2024},
-      eprint={2412.15803},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2412.15803}, 
-}
-```
-
-## Contributors
-
-<a href="https://github.com/mlc-ai/web-llm/graphs/contributors">
-  <img alt="contributors" src="https://contrib.rocks/image?repo=mlc-ai/web-llm"/>
+<a href="https://github.com/your-github-username/your-repo-name/graphs/contributors">
+<img alt="contributors" src="https://contrib.rocks/image?repo=your-github-username/your-repo-name"/>
 </a>
+<br>
+We welcome contributions! See [CONTRIBUTING.md](#[link to your contributing guidelines]) for more details.
 
 <p align="right">
-  <a href="#top">⬆ Back to Top ⬆</a>
+<a href="#top">⬆ Back to Top ⬆</a>
 </p>
+```
