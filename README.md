@@ -7,7 +7,7 @@
 
 
 👇👇👇👇👇👇
-## [🚀 **Try FineTunnedLLama8b model directly in your browser - NO INSTALLATION NEEDED!**](https://chat.webllm.ai/#/) 🚀
+## [🚀 **Try FineTunnedLLama8b model right in your browser - NO INSTALLATION NEEDED!**](https://chat.webllm.ai/#/) 🚀
 ☝️☝️☝️☝️☝️☝️
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](#[link to your build status])
 [![License](https://img.shields.io/badge/License-MIT-blue)](#[link to your license])
